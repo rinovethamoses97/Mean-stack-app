@@ -4,7 +4,7 @@ var cors=require('cors');
 var path=require('path');
 var mongoose=require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/contactlist');
+mongoose.connect('mongodb://rino:rino1234@ds261072.mlab.com:61072/contactapp');
 mongoose.connection.on('connected',function(){
     console.log("Mongo Db connected");
 });
@@ -20,6 +20,7 @@ app.use('/api',route);
 app.use(cors());
 app.use(bodyparser.json());
 
-app.listen(3000,function(){
-    console.log("Server running in the port:3000");
-});
+var http = require("http");
+var server = http.createServer(app);
+var port = Number(process.env.PORT || 3000);
+server.listen(port);

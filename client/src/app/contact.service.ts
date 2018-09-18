@@ -8,19 +8,19 @@ import {contact} from './contact';
 export class ContactService {
   constructor(private http: HttpClient) { }
   getConfig() {
-    return this.http.get("http://localhost:3000/api/contactlist");
+    return this.http.get("api/contactlist");
   }
   addContact(ab){
        var headers=new HttpHeaders({
         'Content-Type':  'application/json',
       });
-      return this.http.post("http://localhost:3000/api/contact",ab, {headers:headers});
+      return this.http.post("api/contact",ab, {headers:headers});
   }
   addSample(s){
     var headers=new HttpHeaders({
       'Content-Type':  'application/json',
     });
-    return this.http.post("http://localhost:3000/api/sample",s,{headers:headers});
+    return this.http.post("api/sample",s,{headers:headers});
   }
 }
 
